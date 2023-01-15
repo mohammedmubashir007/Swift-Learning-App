@@ -16,9 +16,12 @@
 		3F529AE62967B851000203DA /* style.html in Resources */ = {isa = PBXBuildFile; fileRef = 3F529AE42967B851000203DA /* style.html */; };
 		3F529AE82967BAF3000203DA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F529AE72967BAF3000203DA /* Models.swift */; };
 		3F529AEA296904F2000203DA /* HomeViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F529AE9296904F2000203DA /* HomeViewRow.swift */; };
+		3F57C7552973EA0F0075CB39 /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F57C7542973EA0F0075CB39 /* CodeTextView.swift */; };
 		3F6D7DF9296C6E4C00CBAFEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6D7DF8296C6E4C00CBAFEE /* ContentView.swift */; };
 		3F6D7DFB296C7D0600CBAFEE /* ContentViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6D7DFA296C7D0500CBAFEE /* ContentViewRow.swift */; };
 		3F6D7DFD2970454B00CBAFEE /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6D7DFC2970454B00CBAFEE /* ContentDetailView.swift */; };
+		3F6D7E0029704D8F00CBAFEE /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6D7DFF29704D8F00CBAFEE /* AVKit.framework */; };
+		3F6D7E0229704EF100CBAFEE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6D7E0129704EF100CBAFEE /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +35,12 @@
 		3F529AE42967B851000203DA /* style.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = style.html; sourceTree = "<group>"; };
 		3F529AE72967BAF3000203DA /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		3F529AE9296904F2000203DA /* HomeViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRow.swift; sourceTree = "<group>"; };
+		3F57C7542973EA0F0075CB39 /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		3F6D7DF8296C6E4C00CBAFEE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3F6D7DFA296C7D0500CBAFEE /* ContentViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewRow.swift; sourceTree = "<group>"; };
 		3F6D7DFC2970454B00CBAFEE /* ContentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailView.swift; sourceTree = "<group>"; };
+		3F6D7DFF29704D8F00CBAFEE /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		3F6D7E0129704EF100CBAFEE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6D7E0029704D8F00CBAFEE /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +60,7 @@
 			children = (
 				3F529ACD2967B353000203DA /* IOS Learning App */,
 				3F529ACC2967B353000203DA /* Products */,
+				3F6D7DFE29704D8F00CBAFEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +103,7 @@
 				3F6D7DF8296C6E4C00CBAFEE /* ContentView.swift */,
 				3F6D7DFA296C7D0500CBAFEE /* ContentViewRow.swift */,
 				3F6D7DFC2970454B00CBAFEE /* ContentDetailView.swift */,
+				3F57C7542973EA0F0075CB39 /* CodeTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,6 +129,7 @@
 			children = (
 				3F529AE32967B850000203DA /* data.json */,
 				3F529AE42967B851000203DA /* style.html */,
+				3F6D7E0129704EF100CBAFEE /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -129,6 +139,14 @@
 			children = (
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3F6D7DFE29704D8F00CBAFEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F6D7DFF29704D8F00CBAFEE /* AVKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,8 +227,10 @@
 				3F6D7DFD2970454B00CBAFEE /* ContentDetailView.swift in Sources */,
 				3F529AE22967B476000203DA /* ContentModel.swift in Sources */,
 				3F6D7DFB296C7D0600CBAFEE /* ContentViewRow.swift in Sources */,
+				3F57C7552973EA0F0075CB39 /* CodeTextView.swift in Sources */,
 				3F529AE82967BAF3000203DA /* Models.swift in Sources */,
 				3F529AEA296904F2000203DA /* HomeViewRow.swift in Sources */,
+				3F6D7E0229704EF100CBAFEE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

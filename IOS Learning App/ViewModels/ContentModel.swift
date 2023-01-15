@@ -1,10 +1,3 @@
-//
-//  ContentModel.swift
-//  IOS Learning App
-//
-//  Created by Mohammed Mubashir on 06/01/23.
-//
-
 import Foundation
 
 class ContentModel:ObservableObject {
@@ -16,6 +9,14 @@ class ContentModel:ObservableObject {
     @Published var currentModule : Module?
     var currentModuleIndex = 0
     
+    // current lesson
+    @Published var currentLesson : Lesson?
+    var currentLessonIndex = 0
+    
+    // current lesson explaination
+    @Published var lessonDescription = NSAttributedString()
+    
+    
     var styleData : Data?
     
     
@@ -24,7 +25,7 @@ class ContentModel:ObservableObject {
     }
     
     
-    //     MARK: DATA METHODS
+    //MARK: DATA METHODS
     func getLocalData(){
         
         let jsonUrl = Bundle.main.url(forResource: "data", withExtension: "json")
@@ -57,7 +58,8 @@ class ContentModel:ObservableObject {
     }
     
     
-    //MARK: NAVIGATION METHODS
+    
+    //MARK: MODULE NAVIGATION METHODS
     func beginModule(_ moduleId: Int){
         
         // find the index of the this module id
@@ -74,4 +76,87 @@ class ContentModel:ObservableObject {
         currentModule = modules[currentModuleIndex]
         
     }
+    
+    
+    
+    //MARK: LESSON NAVIGATION METHODS
+    func beginLesson(_ lessonIndex: Int){
+        
+        //check if the lesson id is in the range of the module
+        if lessonIndex < currentModule!.content.lessons.count {
+            
+            currentLessonIndex = lessonIndex
+        }else {
+            currentLessonIndex = 0
+        }
+        
+        
+        //set the current lesson
+        
+        currentLesson = currentModule!.content.lessons[currentLessonIndex]
+        lessonDescription = addStyling(currentLesson!.explanation)
+    }
+    
+    
+    
+    //MARK: CHECK IF NEXT LESSON IS AVAILABLE OR NOT
+    func hasNextLesson ()->Bool {
+        if currentLessonIndex + 1 < currentModule!.content.lessons.count {
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    
+    func nextLesson() {
+        
+        // advance lesson index
+        
+        currentLessonIndex += 1
+        
+        // check if the lesson is within the range
+        
+        if currentLessonIndex < currentModule!.content.lessons.count {
+            
+            // set the current lesson
+            
+            currentLesson = currentModule!.content.lessons[currentLessonIndex]
+            lessonDescription = addStyling(currentLesson!.explanation)
+        }else {
+            currentLesson = nil
+            currentLessonIndex = 0
+        }
+    }
+    
+    
+    
+    // MARK: Code styling
+    private func addStyling(_ htmlString:String) -> NSAttributedString {
+        var resultString = NSAttributedString()
+        var data = Data()
+        
+        // Add the style data
+        
+        if styleData != nil {
+            data.append(styleData!)
+        }
+        
+        // Add the html data
+        
+        data.append(Data(htmlString.utf8))
+        
+        // Convert to Attributed String
+        
+        if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+            resultString = attributedString
+        }
+        
+        
+        
+        
+        
+        return resultString
+    }
+    
 }
