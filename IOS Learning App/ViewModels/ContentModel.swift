@@ -20,6 +20,10 @@ class ContentModel:ObservableObject {
     var styleData : Data?
     
     
+    // current selected lesson and test
+    @Published var currentContentSelected : Int?
+    
+    
     init(){
         getLocalData()
     }
